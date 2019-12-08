@@ -124,7 +124,7 @@ export default {
           color: "DarkKhaki"
         }
       ],
-      heightList: []
+      heightList: [] //每个板块距离页面顶部的高度列表
     };
   },
   methods: {

@@ -52,13 +52,13 @@ export default {
   },
   data() {
     return {
-      currentIndex: -1,
-      currentY: 0,
-      moveY: 0,
-      positionIndex: 0,
-      isdraging: false,
-      mode: "nav",
-      top: 0
+      currentIndex: -1, //当前页面位置对应的li下标
+      currentY: 0, //拖动标签时，当前标签原的Y轴位置
+      moveY: 0, //拖动标签时相对移动的像素
+      positionIndex: 0, //拖动标签时，当前位置对应的li下标
+      isdraging: false, //是否在拖动的状态
+      mode: "nav", //当前状态，nav为可点击跳转但不可编辑，edit为列表可拖动编辑但不可点击
+      top: 0 //当前页面距离顶端的高度。
     };
   },
   mounted() {
@@ -75,12 +75,12 @@ export default {
   computed: {
     dragStyles() {
       return `
-                position:relative;
-                z-index:1;
-				top:${this.moveY}px;
-				backgroundColor: rgb(3, 117, 246);
-                color: #fff;
-                `;
+        position:relative;
+        z-index:1;
+        top:${this.moveY}px;
+        backgroundColor: rgb(3, 117, 246);
+        color: #fff;
+        `;
     },
     currentLi() {
       let j = 0;
@@ -140,7 +140,6 @@ export default {
       this.positionIndex = 0;
       this.currentIndex = null;
     },
-    scroll() {},
     scrollTo(index) {
       if (this.mode !== "nav") {
         return;
